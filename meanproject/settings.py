@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'calculation.apps.CalculationConfig',
-    'widget_tweaks',
-    'bootstrap_modal_forms'
+    'bootstrap_modal_forms',
 ]
 
 MIDDLEWARE = [

@@ -2,6 +2,7 @@ from django import forms
  
 class CalculateForm(forms.Form):
 
+    ## validates input: input has to be either a list of int or an int ##
     def validate_type(value):
         if(isinstance(value,int) or (isinstance(value,list)  and all([isinstance(item, int) for item in value]))):
             pass

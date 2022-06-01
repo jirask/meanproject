@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.urls import reverse
 from .forms import CalculateForm
 
+## calculates mean out of the input_numbers and stores it in the session and sends feedback to the user (success and error messages). ##
 
 def calculate_mean(request):
     if request.method == 'POST':
@@ -26,6 +27,8 @@ def calculate_mean(request):
         form = CalculateForm()
     return render(request, 'calculation/index.html', {'form': form})
 
+
+## reset stored mean value ##
 
 def reset_session(request):
     try:
