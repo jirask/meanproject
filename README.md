@@ -23,4 +23,4 @@ Start the django application:
 
 That's it!
 
-Browse to http://127.0.0.1:8080 to see the editor in action.
+Browse to http://127.0.0.1:8000 to see the editor in action.
