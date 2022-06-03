@@ -12,10 +12,17 @@ def calculate_mean(request):
         form = CalculateForm(request.POST)
         if form.is_valid():
             input_numbers = form.cleaned_data['input_numbers']
+            ## if input is only one number convert it to list
             if(isinstance(input_numbers,int)):
-                request.session['average'] = input_numbers
-            else :
+                input_numbers=[input_numbers]
+
+            ##init average if no value is stored in cash
+            if(request.session.get('average','First Calcualtion')=='First Calcualtion'):
                 request.session['average'] = mean(input_numbers)
+            else:            
+                new_mean=mean(input_numbers)
+                old_mean=request.session['average']
+                request.session['average'] = mean([new_mean,old_mean])
             output = {
                 'type': 'success'
                 }
