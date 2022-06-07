@@ -18,11 +18,13 @@ def calculate_mean(request):
 
             ##init average if no value is stored in cash
             if(request.session.get('average','First Calcualtion')=='First Calcualtion'):
+                request.session['input_numbers']=input_numbers
                 request.session['average'] = mean(input_numbers)
             else:            
-                new_mean=mean(input_numbers)
-                old_mean=request.session['average']
-                request.session['average'] = mean([new_mean,old_mean])
+                new_numbers=input_numbers
+                old_numbers=request.session['input_numbers']
+                request.session['input_numbers']=old_numbers+new_numbers
+                request.session['average'] = mean(new_numbers+old_numbers)
             output = {
                 'type': 'success'
                 }
