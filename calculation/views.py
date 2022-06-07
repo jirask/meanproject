@@ -42,6 +42,7 @@ def calculate_mean(request):
 def reset_session(request):
     try:
         del request.session['average']
+        del request.session['input_numbers']
     except KeyError:
          pass
     messages.success(request, "Value reset is done.")
